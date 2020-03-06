@@ -6,6 +6,7 @@ const enemy = document.getElementById('enemy');
 const again = document.getElementById('again');
 const header = document.querySelector('.header');
 
+const tableSize = 10;
 
 const game = {
     ships: [],
@@ -33,11 +34,11 @@ const game = {
         const direction = Math.random() < 0.5;
         let x, y;
         if (direction) {
-            x = Math.floor(Math.random()*10);
-            y = Math.floor(Math.random()*(10 - shipSize));
+            x = Math.floor(Math.random() * tableSize);
+            y = Math.floor(Math.random() * (tableSize - shipSize));
         } else {
-            x = Math.floor(Math.random()*(10 - shipSize));
-            y = Math.floor(Math.random()*10);
+            x = Math.floor(Math.random() * (tableSize - shipSize));
+            y = Math.floor(Math.random() * tableSize);
         }
 
 
@@ -70,7 +71,7 @@ const game = {
             for (let j = startCoordX; j < startCoordX + 3; j++){
                 const startCoordY = location[i][1] - 1;
                 for (let z = startCoordY; z < startCoordY + 3; z++) {
-                    if (j >= 0 && j < 10 && z >= 0 && z < 10) {
+                    if (j >= 0 && j < tableSize && z >= 0 && z < tableSize) {
                         const coord = j + '' + z;
                         this.collision.add(coord);
                     }
@@ -156,7 +157,29 @@ const init = () => {
     play.render();
     game.generateShip();
     again.addEventListener('click', () => {
-        location.reload();
+        //location.reload(); another way is below without refreshing the page
+
+
+        let tables = document.querySelectorAll('td');
+        tables.forEach(el => {
+            if (el.classList.length > 0) {
+                el.classList.remove('miss');
+                el.classList.remove('hit');
+                el.classList.remove('dead');
+            }
+        });
+        header.textContent = 'SEA BATTLE';
+        header.style.color = 'black';
+        game.ships = [];
+        game.shipCount = 0;
+        game.collision.clear();
+        game.generateShip();
+        play.shot = 0;
+        play.hit = 0;
+        play.dead = 0;
+        play.render();
+
+
     });
     record.addEventListener('dblclick', () => {
         localStorage.clear();
