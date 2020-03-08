@@ -20,6 +20,11 @@ table {
 
 }
 
+.rating {
+    margin-top: 50px;
+    width: 300px;
+}
+
 td {
     border: 3px solid black;
     width: 30px;

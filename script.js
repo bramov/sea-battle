@@ -144,6 +144,9 @@ const fire = (event) => {
                     if (play.shot < play.record || play.record === 0) {
                         localStorage.setItem('seaBattleRecord', play.shot);
                         play.record = play.shot;
+
+                        passData(play.record, localStorage.getItem('name'));
+                        downloadData(renderRatingCells);
                         play.render();
                     }
                 }
@@ -152,14 +155,48 @@ const fire = (event) => {
     }
 };
 
+const downloadData = (render) => {
+    fetch('./rating.json')
+        .then(response => response.json())
+        .then((data) => render(data));
+};
+
+const renderRatingCells = (data) => {
+    let keys = Object.keys(data);
+    let values = Object.values(data);
+    let ratingTable = document.querySelector('#rating_table');
+    for (let i = 0; i < keys.length; i++) {
+        ratingTable.appendChild(document.createElement('tr'));
+        let name = document.createElement('td');
+        name.innerText = keys[i];
+        ratingTable.appendChild(name);
+        let score = document.createElement('td');
+        score.innerText = values[i];
+        ratingTable.appendChild(score);
+    }
+};
+
+const passData = (score, username) => {
+    let json = JSON.stringify({score: score, name: username});
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "./sendData");
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(json);
+};
+
+
 const init = () => {
+    if (!localStorage.getItem('name')){
+        let username = prompt('Введите имя для таблицы рейтинга?');
+        localStorage.setItem('name', username);
+    }
+
+    downloadData(renderRatingCells);
     enemy.addEventListener('click', fire);
     play.render();
     game.generateShip();
     again.addEventListener('click', () => {
         //location.reload(); another way is below without refreshing the page
-
-
         let tables = document.querySelectorAll('td');
         tables.forEach(el => {
             if (el.classList.length > 0) {
@@ -170,22 +207,26 @@ const init = () => {
         });
         header.textContent = 'SEA BATTLE';
         header.style.color = 'black';
+
         game.ships = [];
         game.shipCount = 0;
         game.collision.clear();
         game.generateShip();
+
         play.shot = 0;
         play.hit = 0;
         play.dead = 0;
         play.render();
-
-
     });
+
+
     record.addEventListener('dblclick', () => {
         localStorage.clear();
         play.record = 0;
         play.render();
-    })
+    });
+
+
 };
 
 init();

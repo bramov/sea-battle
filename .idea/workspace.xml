@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b69ad912-a877-4ca5-a18a-be2119c99397" name="Default Changelist" comment="" />
+    <list default="true" id="b69ad912-a877-4ca5-a18a-be2119c99397" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +53,9 @@
       <updated>1583310385946</updated>
       <workItem from="1583310387168" duration="2970000" />
       <workItem from="1583393391724" duration="3357000" />
-      <workItem from="1583480338880" duration="6356000" />
+      <workItem from="1583480338880" duration="7198000" />
+      <workItem from="1583589171105" duration="5542000" />
+      <workItem from="1583652195935" duration="3392000" />
     </task>
     <servers />
   </component>
@@ -74,7 +81,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/script.js</url>
           <line>116</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
