@@ -16,7 +16,9 @@ app.post('/sendData', (req, res) => {
     fs.readFile('rating.json', (err, data) => {
         if (err) throw err;
         let json = JSON.parse(data);
-        json[name] = score;
+        if (name && score && name !== '@bramov') {
+            json[name] = score;
+        }
         let final = JSON.stringify(json);
         fs.writeFile('rating.json', final, (err) => {
             if (err) throw err;

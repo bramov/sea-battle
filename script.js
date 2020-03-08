@@ -146,7 +146,10 @@ const fire = (event) => {
                         play.record = play.shot;
 
                         passData(play.record, localStorage.getItem('name'));
-                        downloadData(renderRatingCells);
+                        //downloadData(renderRatingCells);
+                        let newObj = {};
+                        newObj[localStorage.getItem('name')] = play.record;
+                        renderRatingCells(newObj);
                         play.render();
                     }
                 }
@@ -196,7 +199,8 @@ const init = () => {
     play.render();
     game.generateShip();
     again.addEventListener('click', () => {
-        //location.reload(); another way is below without refreshing the page
+        location.reload();
+        /*
         let tables = document.querySelectorAll('td');
         tables.forEach(el => {
             if (el.classList.length > 0) {
@@ -217,11 +221,12 @@ const init = () => {
         play.hit = 0;
         play.dead = 0;
         play.render();
+        */
     });
 
 
     record.addEventListener('dblclick', () => {
-        localStorage.clear();
+        localStorage.removeItem('seaBattleRecord');
         play.record = 0;
         play.render();
     });
