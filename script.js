@@ -148,6 +148,8 @@ const fire = (event) => {
                         passData(play.record, localStorage.getItem('name'));
                         //downloadData(renderRatingCells);
                         let newObj = {};
+                        let arr = document.querySelectorAll('td');
+                        console.log(arr);
                         newObj[localStorage.getItem('name')] = play.record;
                         renderRatingCells(newObj);
                         play.render();
