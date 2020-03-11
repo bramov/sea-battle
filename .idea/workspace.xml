@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b69ad912-a877-4ca5-a18a-be2119c99397" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating.json" beforeDir="false" afterPath="$PROJECT_DIR$/rating.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +55,10 @@
       <workItem from="1583393391724" duration="3357000" />
       <workItem from="1583480338880" duration="7198000" />
       <workItem from="1583589171105" duration="5542000" />
-      <workItem from="1583652195935" duration="6348000" />
+      <workItem from="1583652195935" duration="6604000" />
+      <workItem from="1583693885448" duration="3957000" />
+      <workItem from="1583741295108" duration="99000" />
+      <workItem from="1583915539486" duration="49000" />
     </task>
     <servers />
   </component>
@@ -73,16 +77,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/script.js</url>
-          <line>116</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
